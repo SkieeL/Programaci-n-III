@@ -1,0 +1,5 @@
+// Debe establecerse antes de cualquier salida por pantalla
+$resultado = setcookie("nombre", "valor", time()+500);
+
+// Eliminar una cookie (se establece como vencido el tiempo de expiración)
+$resultado = setcookie("nombre", "valor", time()-1);

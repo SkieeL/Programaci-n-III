@@ -1,0 +1,55 @@
+// Se debe colocar el atributo: enctype="multipart/form-data" en el form HTML
+
+// Toma el nombre del archivo (con el que fue subido)
+$nombreArchivo = $_FILES["archivo"]["name"];
+
+//PATHINFO RETORNA UN ARRAY CON INFORMACION DEL PATH
+//PATHINFO_DIRNAME - retorna solo nombre del directorio
+//PATHINFO_BASENAME - retorna solo el nombre del archivo (con la extension)
+//PATHINFO_EXTENSION - retorna solo extension
+//PATHINFO_FILENAME - retorna solo el nombre del archivo (sin la extension)
+$extension = pathinfo($nombreArchivo, PATHINFO_EXTENSION);
+
+// Verifica que el archivo se haya subido correctamente
+if ($_FILES["archivo"]["error"] != 0) {
+	echo "Error al subir el archivo al servidor";
+	die();
+}
+
+// Verifica que el archivo no exista
+if (file_exists($destino)) {
+    echo "El archivo ya existe";
+    die();
+}
+
+// Verifica que no exceda el límite de tamaño
+if ($_FILES["archivo"]["size"] > 500000) {
+    echo "El archivo es demasiado grande";
+    die();
+}
+
+//OBTIENE EL TAMAÑO DE UNA IMAGEN, SI EL ARCHIVO NO ES UNA
+//IMAGEN, RETORNA FALSE
+$esImagen = getimagesize($_FILES["archivo"]["tmp_name"]);
+
+if ($esImagen === FALSE) {
+    echo "No se puede subir otra cosa que no sean imagenes";
+    die();
+}
+
+if ($extension != "jpg" && $extension != "jpeg" && $extension != "png") {
+    echo "Quién te conoce extensión? La extensión del archivo es invalida papá!";
+    die();
+}
+
+$nombre = date("Y_m_d_H_i_s");
+
+// Mueve el archivo a la ubicación final
+$resultado = move_uploaded_file($_FILES["archivo"]["tmp_name"], "archivos/" . $nombre . "." . $extension);
+
+if ($resultado) {
+    echo "<center>Imagen cargada correctamente!</center>";
+}
+else {
+    echo "<center>Hubo un problema al subir el archivo al servidor</center>";
+}

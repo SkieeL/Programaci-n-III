@@ -1,0 +1,14 @@
+// Conexión
+$dbconn = mysql_connect("localhost", "root", "pass");
+
+// Consulta SELECT
+$query = "SELECT * FROM tabla";
+$result = mysql_db_query("nombredb", $query);
+
+while ($row = mysql_fetch_array($result)) {
+	echo "Numero: $row[0] - Nombre: $row[1] - Domicilio: " . utf8_encode($row[2]) . "- Localidad: $row[3]<br>";
+}
+
+// Consulta UPDATE
+$query = "UPDATE tabla SET columna = 'dato' WHERE nombre = 'Nombre'";
+$result = mysql_db_query("nombredb", $query);

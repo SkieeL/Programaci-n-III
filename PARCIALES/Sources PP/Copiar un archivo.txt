@@ -1,0 +1,11 @@
+$path_origen = "archivo_origen.txt";
+$path_destino = "archivo_destino.txt";
+
+$resultado = copy($path_origen, $path_destino);
+
+if ($resultado) {
+	echo "Copia exitosa!";
+}
+else {
+	echo "Falló la copia del archivo.";
+}

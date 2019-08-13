@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Listado</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="Manejador.js"></script>
+    <!-- Versión compilada y comprimida del CSS de Bootstrap -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <!-- Tema opcional -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <!-- Versión compilada y comprimida del JavaScript de Bootstrap -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+</head>
+<body >
+    <div >
+        <div class="container-fluid">
+            <form method="post" id="formulario" role="form" onsubmit="return false">
+                <div class="row" >
+                        <div class="col-sm-1  col-md-3 col-xs-3 "></div>
+                        <div class="col-sm-11  col-md-6 col-xs-6 "  style="background-color:coral">
+                            <p class="text-center "><strong>LogIn:</strong></p>
+                        </div>
+                        <div class="col-sm-1  col-md-3 col-xs-3 "></div>
+                </div>
+                <div class="row" >
+                    <div class="col-sm-0  col-md-3 col-xs-3 "></div>
+                   
+                    <div class="table-responsive col-xs-12 col-sm-12  col-md-6 col-lg-6" style="background-color:coral" >
+                        
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12  col-md-2 col-lg-2">
+                            <h4>E-mail</h4>
+                        </div>
+                        <div class="col-xs-12 col-sm-12  col-md-10 col-lg-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                                <input id="mail" type="mail" class="form-control" data-error="Bruh,mail no valido" name="mail" placeholder="E-mail" required>           
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12  col-md-2 col-lg-2">
+                            <h4>Clave</h4>
+                        </div>
+                        <div class="col-xs-12 col-sm-12  col-md-10 col-lg-10">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input id="clave" data-minlength="4" maxlength="8" type="password" class="form-control" name="clave" placeholder="Clave" required>           
+                            </div>
+                        </div>
+                    </div>
+
+                       <div class=" col-sm-12 col-md-6 col-xs-12 "><button type="submit" onclick="Manejador.VerificarUsuario()"  class="btn btn-xs-5 btn-md-5 btn-sm-5 btn-default  btn-block">Enviar</button></div>
+                    <div class="col-sm-12  col-md-6 col-xs-12 "><button type="reset" class="btn btn-xs-5 btn-md-5 btn-sm-5 btn-default  btn-block">Limpiar</button></div>
+                
+                    </div>
+                    
+                    <div class="col.hidden-sm  col-md-3 col-xs-3 "></div>                    
+                </div>
+                <div class="row">
+                </div>
+            </form>
+        </div>
+
+    </div>
+    
+</body>
+</html>

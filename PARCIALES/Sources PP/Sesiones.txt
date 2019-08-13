@@ -1,0 +1,12 @@
+// Debe especificarse en todas las páginas que usen la sesión
+session_start();
+
+// Seteo las variables de sesión
+$_SESSION['usuario'] = "Ezequiel";
+$_SESSION['pass'] = "12345";
+
+// Sirve para remover todas las variables de la sesión
+session_unset();
+
+// Sirve para destruir la sesión
+session_destroy();

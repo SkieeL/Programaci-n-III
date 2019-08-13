@@ -1,0 +1,28 @@
+$parametros=array(PDO::ATTR_EMULATE_PREPARES => false, PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION);
+$conexionPDO = new PDO('mysql:host=localhost;dbname=cdcol;charset=utf8', 'user', 'pass', $parametros);
+
+// SELECT
+$query = $conexionPDO->prepare('SELECT sabor, precio, pathi FROM helados');
+$query->execute();
+$arrayObj = array();
+
+while ($fila = $query->fetch()) {
+	$sabor = trim($fila[0]);
+	$precio = trim($fila[1]);
+	$path = trim($fila[2]);
+}
+
+// INSERT
+
+$query = $conexionPDO->prepare('INSERT INTO helados (sabor, precio, pathi) VALUES :sabor, :precio, :pathi');
+$result = $query->execute(array("sabor" => $obj->GetSabor(), "precio" => $obj->GetPrecio(), "pathi" => $obj->GetPath()));
+
+// DELETE
+
+$query = $conexionPDO->prepare('DELETE FROM helados WHERE sabor = :sabor');
+$result = $query->execute(array("sabor" => $obj->GetSabor()));
+
+// UPDATE
+
+$query = $conexionPDO->prepare('UPDATE helados SET sabor = :saborNuevo, precio = :precio, pathi = :pathi WHERE sabor = :saborViejo');
+$result = $query->execute(array("saborNuevo" => $objNuevo->GetSabor(), "precio" => $objNuevo->GetPrecio(), "pathi" => $objNuevo->GetPath(), "saborViejo" => $objViejo->GetSabor()));

@@ -1,0 +1,20 @@
+interface IInterfaz { 
+	function Metodo();
+}
+
+class ClaseDerivada extends ClaseBase implements IInterfaz {
+	private $_nombre;
+	private $_edad;
+
+	public function __construct() {
+		parent::__construct();
+	}
+
+	public function Metodo() {
+		// Code
+	}
+
+	public function ToString() {
+		return $this->_nombre . $this->_edad;
+	}
+}

@@ -1,0 +1,10 @@
+$path = "archivo.txt";
+
+$resultado = unlink($path);
+
+if ($resultado) {
+	echo "Archivo eliminado exitosamente!";
+}
+else {
+	echo "Falló la eliminación del archivo.";
+}

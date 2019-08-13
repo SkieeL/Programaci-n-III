@@ -1,0 +1,10 @@
+$RUTA_ARCHIVO = "misArchivos/palabras.txt";
+
+$archivo = fopen($RUTA_ARCHIVO, "r");
+
+// Se puede usar "fread" para leer todo el archivo!
+while (!feof($archivo)) {
+    $linea = fgets($archivo);
+}
+
+fclose($archivo);

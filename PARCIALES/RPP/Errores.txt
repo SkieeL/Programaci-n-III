@@ -1,0 +1,5 @@
+Lamparita.php - Eliminar(): $extension = $datos[4]; => $extension = $datos[5];
+Lamparita.php - Eliminar(): "lamparitasBorradas/" => "../lamparitasBorradas/"
+Lamparita.php - Modificar(): "lamparitasModificadas/" => "../lamparitasModificadas/"
+ModificarLamparita.php: Me faltó la "t" de "$tipo" en el constructor de Lamparita.
+ModificarLamparita.php: move_uploaded_file($_FILES["foto"]["tmp_name"], $pathNuevo); => move_uploaded_file($_FILES["foto"]["tmp_name"], $path);
